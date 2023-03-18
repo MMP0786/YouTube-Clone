@@ -1,0 +1,43 @@
+.containor{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+}
+
+.header-left {
+    display: flex;
+    margin: 0px 20px;
+}
+
+.icon{
+    margin-left: 10px;
+}
+
+
+.header-center{
+    display: flex;
+    /* border: 1px solid ; */
+    width: 50%;
+    
+}
+
+.search{
+    border-radius: 15px 0px 0px 15px ;
+    border: 1px solid;
+    display: flex;
+    width: 88%;
+}
+
+.s-icon{
+    background-color: rgb(238, 236, 232);
+    border: 1px solid black;
+    width: 8%;
+    border-radius: 0px 15px 15px 0px;
+    padding: 0 5px;
+}
+
+.header-right{
+    display: flex;
+    margin: 10px;
+}

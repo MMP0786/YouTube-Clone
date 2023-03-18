@@ -12,6 +12,7 @@
 
 .icon{
     margin-left: 10px;
+    cursor: pointer;
 }
 
 
@@ -27,6 +28,7 @@
     border: 1px solid;
     display: flex;
     width: 88%;
+    cursor: pointer;
 }
 
 .s-icon{

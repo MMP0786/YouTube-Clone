@@ -18,17 +18,24 @@
 
 .header-center{
     display: flex;
-    /* border: 1px solid ; */
     width: 50%;
     
 }
 
+.search:focus{
+    outline-color: blue;
+    /* background-image: url('download.png'); */
+}
+.search::placeholder{
+    padding-left: 5px;
+}
+
 .search{
     border-radius: 15px 0px 0px 15px ;
-    border: 1px solid;
     display: flex;
     width: 88%;
     cursor: pointer;
+    /* border-color: rgb(118, 118, 212); */
 }
 
 .s-icon{

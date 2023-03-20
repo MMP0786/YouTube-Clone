@@ -6,6 +6,7 @@ import {
   mdiMagnify,
   mdiMicrophone,
   mdiBellOutline,
+  mdiVideoPlusOutline
 } from "@mdi/js";
 import {
   getAuth,
@@ -48,7 +49,6 @@ function Header() {
 
   return (
     <div className="containor">
-      {/* <img src="download.png" alt="" /> */}
       <div className="header-left">
         <Icon path={mdiMenu} size={1.5} style={{ cursor: "pointer" }} onClick={NavOpen} />
         <Icon
@@ -70,6 +70,7 @@ function Header() {
         <Icon path={mdiMicrophone} size={1.5} style={{ cursor: "pointer" }} />
       </div>
       <div className="header-right">
+      <Icon path={mdiVideoPlusOutline} size={1} />
         <Icon
           path={mdiBellOutline}
           size={1.4}

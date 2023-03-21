@@ -70,10 +70,10 @@ function Header() {
         <Icon path={mdiMicrophone} size={1.5} style={{ cursor: "pointer" }} />
       </div>
       <div className="header-right">
-      <Icon path={mdiVideoPlusOutline} size={1.5} style={{marginLeft:"10px"}}/>
+      <Icon path={mdiVideoPlusOutline} size={1.6} style={{marginLeft:"15px"}}/>
         <Icon
           path={mdiBellOutline}
-          size={1.4}
+          size={1.3}
           style={{ cursor: "pointer", marginRight: "15px" }}
         />
         {user ? (

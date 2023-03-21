@@ -18,5 +18,25 @@
 }
 
 .videos{
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.video {
+    margin: 10px;
+    /* width: 20%; */
+    /* height: ; */
+}
+.flex{
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.time{
+    display: flex;
+    justify-content: start;
+    margin-left: 50px;
+    align-items: center;
 }

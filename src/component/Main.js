@@ -87,13 +87,33 @@ function Main() {
   return (
     <>
     <div className='all-tab'>
-      {popularTab.map(ele=><div className='tab' key={ele.id}>{ele.name}</div>)}
+      {popularTab.map(ele=><div className='tab' key={ele.id}>{ele.name}</div>)}     
     </div>
-    <div>img</div>
-    <div className='videos'>{videos.map(ele=> <img src={ele.img}/>)}</div>
-    </>
+    
+    <div className='videos'>
 
-  )
-}
+      {
+        videos.map(ele=> {
+          return(
+            <>  
+            <div className="video">
+          <img style={{width:"85%"}} src={ele.img}/>
+          <div className='flex'>
+          <img style={{width:"40px", marginRight:"10px"}} src={ele.cPhoto}/>
+          <div>{ele.vDisc}</div>
+
+          </div> 
+          <div style={{paddingLeft:"50px"}}>{ele.channelName}</div>
+          <div className="time">
+          <div style={{marginRight:"10px"}}>{ele.views}M Views </div>
+          <div> {ele.days}days ago</div>
+          </div>
+          </div>
+          </>
+        )
+      })}
+      </div>
+    </>
+    )}
 
 export default Main;

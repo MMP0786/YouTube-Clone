@@ -4,6 +4,7 @@ import Header from './component/Header';
 import "./component/header.css"
 import LeftNav from './component/LeftNav';
 import { createContext, useState } from 'react';
+import Main from './component/Main';
 
 export const createNav = createContext();
 
@@ -21,6 +22,7 @@ function App() {
       {
         nav && <LeftNav/>
       }
+      <Main/>
       </createNav.Provider>
     </div>
   );

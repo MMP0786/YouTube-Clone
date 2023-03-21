@@ -1,0 +1,22 @@
+.all-tab{
+    display: flex;
+}
+.tab{
+    margin: 5px;
+    padding: 5px;
+    background-color: rgb(236, 232, 232);
+    border-radius: 7px;
+    cursor: pointer;
+}
+.all{
+    background-color: black;
+    color: azure;
+}
+
+.tab:hover{
+    background-color: grey;
+}
+
+.videos{
+    display: flex;
+}

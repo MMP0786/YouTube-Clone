@@ -18,7 +18,7 @@ import { app } from "../Firebase.js";
 import { createNav } from "../App.js";
 
 function Header() {
-  const {NavOpen} =useContext(createNav);
+  const {NavOpen, nav} =useContext(createNav);
   const [user, setUser] = useState();
 
   useEffect(() => {
@@ -50,18 +50,17 @@ function Header() {
   return (
     <div className="containor">
       <div className="header-left">
-        <Icon path={mdiMenu} size={1.5} style={{ cursor: "pointer" }} onClick={NavOpen} />
+        <Icon path={mdiMenu} size={1.5} style={{ cursor: "pointer" }} onClick={()=>NavOpen(nav) } />
         <Icon
           className="icon"
           path={mdiYoutube}
           size={1.5}
           color={"red"}
         />{" "}
-        <span style={{ cursor: "pointer" }}>
-          {" "}
-          Youtube{" "}
+        <div style={{ cursor: "pointer",  marginTop:"5px", marginLeft:"3px"}}>
+          Youtube
           <sup style={{ fontSize: "10px", display: "inlineBlock" }}>IN</sup>
-        </span>
+        </div>
       </div>
 
       <div className="header-center">
@@ -78,7 +77,7 @@ function Header() {
         />
         {user ? (
           <img
-            style={{ height: "35px", width: "35px", borderRadius: "50%" }}
+            style={{ height: "30px", width: "30px", borderRadius: "50%" }}
             src={user.photoURL}
             alt="image"
           />

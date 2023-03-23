@@ -1,0 +1,7 @@
+.upload{
+    /* border: 1px solid black; */
+    width: 50%;
+    position: absolute;
+    transform: translate(70%, 20%);
+    margin-left: 20px;
+}

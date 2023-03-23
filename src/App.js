@@ -12,18 +12,23 @@ export const createNav = createContext();
 
 function App() {
   const [nav, setNav] = useState(false);
-
+  const [user, setUser] = useState();
   const NavOpen = (val)=>{
     setNav(!val)
-    console.log("first")
   }
   return (
     <div>
-      <createNav.Provider value={{nav, NavOpen}}>
+      <createNav.Provider value={{nav, NavOpen, user, setUser}}>
       <Header/>
       {nav && <LeftNav/>}
-      <Main/>
       </createNav.Provider>
+
+      <BrowserRouter>
+      <Routes>
+        <Route path='upload' element={<Upload/>}/>
+        <Route path='/' element={<Main/>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -14,13 +14,15 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
 } from "firebase/auth";
+
+import { Link } from "react-router-dom";
 import { app } from "../Firebase.js";
 import { createNav } from "../App.js";
 
 function Header() {
-  const {NavOpen, nav} =useContext(createNav);
-  const [user, setUser] = useState();
-
+  const {NavOpen, nav } =useContext(createNav);
+  const [ user, setUser] = useState()
+  
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -34,10 +36,10 @@ function Header() {
 
   const handleClick = () => {
     signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-
-        console.log(user);
+    .then((result) => {
+      const user = result.user;
+      
+      console.log(user);
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       })
@@ -47,6 +49,7 @@ function Header() {
       });
   };
 
+  // console.log(first)
   return (
     <div className="containor">
       <div className="header-left">
@@ -56,7 +59,7 @@ function Header() {
           path={mdiYoutube}
           size={1.5}
           color={"red"}
-        />{" "}
+          />{" "}
         <div style={{ cursor: "pointer",  marginTop:"5px", marginLeft:"3px"}}>
           Youtube
           <sup style={{ fontSize: "10px", display: "inlineBlock" }}>IN</sup>
@@ -69,7 +72,14 @@ function Header() {
         <Icon path={mdiMicrophone} size={1.5} style={{ cursor: "pointer" }} />
       </div>
       <div className="header-right">
-      <Icon path={mdiVideoPlusOutline} size={1.6} style={{marginLeft:"15px"}}/>
+        
+
+
+
+     
+      <a href="upload">
+      <Icon  path={mdiVideoPlusOutline} size={1.6} style={{marginLeft:"15px"}}/>
+      </a>
         <Icon
           path={mdiBellOutline}
           size={1.3}
@@ -85,8 +95,10 @@ function Header() {
           <button style={{ cursor: "pointer" }} onClick={handleClick}>
             Sign in
           </button>
+
         )}
       </div>
+    
     </div>
   );
 }

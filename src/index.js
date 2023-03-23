@@ -3,19 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Upload from './component/Upload';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import Upload from './component/Upload';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='upload' element={<Upload/>}/>
-        <Route path='/' element={<App/>}/>
-      </Routes>
-      </BrowserRouter>
-    {/* <App /> */}
+    <App />
   </React.StrictMode>
 );
 

@@ -2,14 +2,14 @@ import { initializeApp } from "firebase/app";
 import {collection, getFirestore} from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDGI7gQvKk7UUubO_4cgaWTHpZJXgjTwdQ",
-  authDomain: "fir-52121.firebaseapp.com",
-  projectId: "fir-52121",
-  storageBucket: "fir-52121.appspot.com",
-  messagingSenderId: "1044702590699",
-  appId: "1:1044702590699:web:aca1d1829e793ebc1730ae"
+  apiKey: "AIzaSyAEpdvkhr6EqHTv1_hiOIrUK8lj1hpizz4",
+  authDomain: "myproject-37f3a.firebaseapp.com",
+  databaseURL: "https://myproject-37f3a-default-rtdb.firebaseio.com",
+  projectId: "myproject-37f3a",
+  storageBucket: "myproject-37f3a.appspot.com",
+  messagingSenderId: "1042079597114",
+  appId: "1:1042079597114:web:c816aac826156ef8dbab03"
 };
-
 export const app = initializeApp(firebaseConfig);
 export const firestore = getFirestore(app)
 

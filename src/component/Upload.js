@@ -3,21 +3,27 @@ import "../component/upload.css"
 import {v4 as uuidv4} from "uuid"
 import {app} from '../Firebase'
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+// import { Firestore } from 'firebase/firestore';
+import { database, firestore } from '../Firebase';
 import { createNav } from '../App';
 import { Link } from 'react-router-dom';
+import { addDoc } from 'firebase/firestore';
+import { async } from '@firebase/util';
 
 function Upload() {
-  // const {user} = useContext(createNav); 
+
+  const data = useContext(createNav)
   const storage = getStorage(app);
-  // console.log(user)
+  // console.log(data.user.displayName)
   const [videoDetail, setVideDetail] = useState([
     {
       id: uuidv4(),
-      displayName: "",
+      // displayName: data.user.displayName,
       thumbnailPhoto: "",
       videoUrl: "",
-      // channelName: user?.displayName,
-      // channelPhoto: user?.photoUrl,
+      title:"",
+      channelName: data?.user?.displayName,
+      channelPhoto: data?.user?.photoUrl,
       likes:0,
       Comments: [],
       discription: ""
@@ -50,8 +56,11 @@ function Upload() {
     // Handle successful uploads on complete
     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+      console.log(type)
       console.log('File available at', downloadURL);
-      type === "video" ? videoDetail.displayName = downloadURL : videoDetail.thumbnailPhoto= downloadURL;
+      type === "video" ? videoDetail.videoUrl=downloadURL : videoDetail.thumbnailPhoto= downloadURL;
+      console.log(videoDetail)
+      setVideDetail(...videoDetail, videoDetail.videoUrl = downloadURL)
       setVideDetail(...videoDetail)
       
     });
@@ -60,8 +69,12 @@ function Upload() {
 
 
 }
-const handleSubmit = (e)=>{
-  console.log(videoDetail)
+const handleSubmit = async (e)=>{
+  const tempPayload ={...videoDetail}
+ const res = await addDoc(database.videos, tempPayload)
+ console.log(res)
+
+
   }
   return (
       
@@ -72,7 +85,7 @@ const handleSubmit = (e)=>{
       <h4>Choose Thumbnail</h4>
       <input type="file" name="" id="" accept='image/*' onChange={(e)=> handleChangeVideo(e, "thumbnails")}/>
       <h4>Enter title</h4>
-      <input type="text" name="" placeholder='Title' id=""  onBlur={(e)=> setVideDetail({...videoDetail, displayName: e.target.value})}/>
+      <input type="text" name="" placeholder='Title' id=""  onBlur={(e)=> setVideDetail({...videoDetail, title: e.target.value})}/>
       <h4>Enter Descriptin</h4>
       <textarea name="" id="" cols="19" rows="4" placeholder='Description' onBlur={(e)=> setVideDetail({...videoDetail, discription: e.target.value})}></textarea>
       <br></br>

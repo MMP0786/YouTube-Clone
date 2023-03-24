@@ -21,7 +21,6 @@ function App() {
       <createNav.Provider value={{nav, NavOpen, user, setUser}}>
       <Header/>
       {nav && <LeftNav/>}
-      </createNav.Provider>
 
       <BrowserRouter>
       <Routes>
@@ -29,6 +28,7 @@ function App() {
         <Route path='/' element={<Main/>}/>
       </Routes>
       </BrowserRouter>
+      </createNav.Provider>
     </div>
   );
 }

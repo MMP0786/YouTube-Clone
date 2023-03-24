@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import Icon from "@mdi/react";
 import {
   mdiMenu,
@@ -15,13 +15,15 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { app } from "../Firebase.js";
 import { createNav } from "../App.js";
 
+const user1 = createContext()
+
 function Header() {
-  const {NavOpen, nav } =useContext(createNav);
-  const [ user, setUser] = useState()
+  const {NavOpen, nav, user, setUser } =useContext(createNav);
+  // const [ user, setUser] = useState()
   
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
